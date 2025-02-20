@@ -1,0 +1,12 @@
+<h2>Extracted Entities:</h2>
+
+<ul>
+  <% entities_grouped.each_key do |group| %>
+    <h3><%= group %></h3>
+    <% entities_grouped[group].sort_by { |items| -items[:score] }.uniq{ |item| item[:text] }.each do |entity| %>
+      <% if entity[:score]>0.8 %><li><strong><%= entity[:text] %> : <%= entity[:score].round(2)%></strong></li>
+      <% else %><li><%= entity[:text] %> : <%= entity[:score].round(2)%></li><% end %>
+    <% end %>
+  <% end %>
+</ul>
+<button onclick="window.location.href='/'">Upload Another PDF</button>

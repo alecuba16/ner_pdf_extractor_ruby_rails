@@ -1,0 +1,1 @@
+model_path: "<%= Rails.root.join('vendor','mitie','english_ner_model.dat') %>"
